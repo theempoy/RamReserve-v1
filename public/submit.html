@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Ticket - Ramreserve</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar user-nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <div class="logo">🎫</div>
+                    <span>Ramreserve</span>
+                </div>
+                <div class="nav-links">
+                    <a href="/static/home.html"> Home</a>
+                    <a href="/static/submit.html" class="active"> Submit Ticket</a>
+                    <a href="/static/my-tickets.html"> My Tickets</a>
+                    <a href="/static/room-calendar.html"> Room Calendar</a>
+                    <a href="/static/about.html"> About</a>
+                    <a href="/static/settings.html"> Settings</a>
+                    <button class="btn btn-outline-light" onclick="logout()"> Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="gradient-text">Submit Reservation Request</h1>
+                <p>Fill out the form below to request equipment or facility reservations</p>
+            </div>
+
+            <div class="department-selection">
+                <div class="dept-option it-option" onclick="selectDepartment('IT')">
+                    <div class="dept-icon">💻</div>
+                    <h3>IT Resource Office</h3>
+                    <p>Equipment & Studios</p>
+                </div>
+                <div class="dept-option bmo-option" onclick="selectDepartment('BMO')">
+                    <div class="dept-icon">🏢</div>
+                    <h3>Business Management Office</h3>
+                    <p>Rooms & Spaces</p>
+                </div>
+            </div>
+
+            <div class="card" id="ticketForm" style="display: none; margin-top: 2rem;">
+                <div class="card-header">
+                    <h2 id="formTitle">Reservation Details</h2>
+                    <p id="formDescription">Please fill in all requested fields</p>
+                </div>
+                <div class="card-body">
+                    <form onsubmit="submitTicket(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Reservation Item/Type <span class=\"required\">*</span></label>
+                                <select id="itemType" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Full Name <span class=\"required\">*</span></label>
+                                <input type="text" id="requestedBy" required placeholder="Enter your full name">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>APC Email Address <span class=\"required\">*</span></label>
+                                <input type="email" id="email" required placeholder="username@apc.edu.ph">
+                            </div>
+                            <div class="form-group">
+                                <label>Reservation Date <span class=\"required\">*</span></label>
+                                <input type="date" id="date" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Start Time <span class=\"required\">*</span></label>
+                                <input type="time" id="time" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Duration <span class=\"required\">*</span></label>
+                                <select id="duration" required>
+                                    <option value="">Select duration</option>
+                                    <option value="1-hour">1 Hour</option>
+                                    <option value="2-hours">2 Hours</option>
+                                    <option value="3-hours">3 Hours</option>
+                                    <option value="4-hours">4 Hours</option>
+                                    <option value="half-day">Half Day</option>
+                                    <option value="full-day">Full Day</option>
+                                    <option value="multiple-days">Multiple Days</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Purpose/Description <span class=\"required\">*</span></label>
+                            <textarea id="purpose" required rows="4" placeholder="Describe the purpose of your reservation..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit Request</button>
+                            <a href="/static/home.html" class="btn btn-outline">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="noSelection" class="empty-state">
+                <p>Please select a department above to continue</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/theme.js"></script>
+    <script src="/static/js/submit.js"></script>
+    <script>checkAuth();</script>
+</body>
+</html>

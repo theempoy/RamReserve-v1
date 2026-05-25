@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tickets - Ramreserve</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar user-nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <div class="logo">🎫</div>
+                    <span>Ramreserve</span>
+                </div>
+                <div class="nav-links">
+                    <a href="/static/home.html"> Home</a>
+                    <a href="/static/submit.html"> Submit Ticket</a>
+                    <a href="/static/my-tickets.html" class="active"> My Tickets</a>
+                    <a href="/static/room-calendar.html"> Room Calendar</a>
+                    <a href="/static/about.html"> About</a>
+                    <a href="/static/settings.html"> Settings</a>
+                    <button class="btn btn-outline-light" onclick="logout()"> Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="page-header-flex">
+                <div>
+                    <h1 class="gradient-text">My Tickets</h1>
+                    <p>View and track your reservation requests</p>
+                </div>
+                <a href="/static/submit.html" class="btn btn-primary">Submit New Request</a>
+            </div>
+
+            <div id="ticketsList"></div>
+        </main>
+    </div>
+
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/theme.js"></script>
+    <script src="/static/js/my-tickets.js"></script>
+    <script>checkAuth(); loadMyTickets();</script>
+</body>
+</html>
