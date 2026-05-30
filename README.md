@@ -37,6 +37,14 @@ http://127.0.0.1:8000/static/index.html
 or
 http://localhost:8000/
 ```
+Creds:
+```text
+user@ramreserve.com
+user123
+or
+admin@ramreserve.com
+admin123
+```
 
 ## Credential configuration
 
