@@ -12,39 +12,15 @@ function switchTab(tab) {
     const overlay = document.getElementById('loginOverlay');
     const logoIcon = document.getElementById('logoIcon');
     const submitBtn = document.getElementById('submitBtn');
-    const demoCredentials = document.getElementById('demoCredentials');
     
     if (tab === 'admin') {
         overlay.classList.add('admin');
         logoIcon.classList.add('admin');
         submitBtn.textContent = 'Sign In as Admin';
-        demoCredentials.innerHTML = `
-            <p><strong>Demo Admin Credentials:</strong></p>
-            <p>Email: admin@ramreserve.com</p>
-            <p>Password: admin123</p>
-        `;
     } else {
         overlay.classList.remove('admin');
         logoIcon.classList.remove('admin');
         submitBtn.textContent = 'Sign In as User';
-        demoCredentials.innerHTML = `
-            <p><strong>Demo User Credentials:</strong></p>
-            <p>Email: user@ramreserve.com</p>
-            <p>Password: user123</p>
-        `;
-    }
-}
-
-function fillDemo() {
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    
-    if (currentTab === 'user') {
-        emailInput.value = 'user@ramreserve.com';
-        passwordInput.value = 'user123';
-    } else {
-        emailInput.value = 'admin@ramreserve.com';
-        passwordInput.value = 'admin123';
     }
 }
 
