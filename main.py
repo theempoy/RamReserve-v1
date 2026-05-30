@@ -67,5 +67,5 @@ async def update_ticket_status(ticket_id: str, payload: StatusUpdateRequest):
             return {"success": True, "ticket": ticket}
     raise HTTPException(status_code=404, detail="Ticket not found")
 
-# Serve Frontend Static Files
+# Serve Frontend Static 
 app.mount("/static", StaticFiles(directory="public", html=True), name="static")
