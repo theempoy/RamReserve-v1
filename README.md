@@ -35,7 +35,7 @@ py -3.11 -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```text
 http://127.0.0.1:8000/static/index.html
 or
-localhost:8000/home.html
+http://localhost:8000/
 ```
 
 ## Credential configuration
